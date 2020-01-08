@@ -1,9 +1,14 @@
-import bencode
-from collections import OrderedDict
 from torrent import Torrent
+from sys import argv
 
-FILE_NAME = "debian-10.2.0-amd64-netinst.iso.torrent"
+# Verifies correct usage
+if len(argv) != 2:
+    print("Error, incorrect usage!")
+    print("Usage: python app.py <path/to/torrent/file>")
+    exit()
+
+FILE_NAME = str(argv[1])
+
 torrent = Torrent(FILE_NAME)
-print(torrent)
 
 pass
